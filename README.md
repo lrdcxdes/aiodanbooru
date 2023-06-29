@@ -24,7 +24,7 @@ pip install aiodanbooru
 Here's a simple example that demonstrates how to use the Danbooru library:
 
 ```python
-from aiodanbooru import DanbooruAPI
+from aiodanbooru.api import DanbooruAPI
 
 
 async def main():

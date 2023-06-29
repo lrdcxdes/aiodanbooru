@@ -27,5 +27,5 @@ setup(
         "Source": "https://github.com/lrdcxdes/aiodanbooru",
         "Bug Reports": "https://github.com/lrdcxdes/aiodanbooru/issues",
     },
-    long_description=open("README.md").read(),
+    long_description=open("LONG.rst").read(),
 )
