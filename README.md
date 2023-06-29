@@ -1,7 +1,7 @@
 # Danbooru
 
 [![PyPI](https://img.shields.io/pypi/v/aiodanbooru.svg)](https://pypi.org/project/aiodanbooru/)
-[![License](https://img.shields.io/pypi/l/aiodanbooru.svg)](https://https://github.com/lrdcxdes/aiodanbooru/blob/main/LICENSE)
+[![License](https://img.shields.io/pypi/l/aiodanbooru.svg)](https://github.com/lrdcxdes/aiodanbooru/blob/main/LICENSE)
 
 Danbooru is a Python library that provides an easy-to-use interface for interacting with the Danbooru API. It allows you to search for posts, retrieve post details, and download media files from the Danbooru image board.
 
@@ -46,10 +46,10 @@ if __name__ == "__main__":
     loop.run_until_complete(main())
 ```
 
-For more details and advanced usage examples, please refer to the [**documentation**](https://aiodanbooru.readthedocs.io/en/latest/).
+For more details and advanced usage examples, please refer to the **[documentation](https://aiodanbooru.readthedocs.io/en/latest/)**.
 
 ## Contributing
-Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on the [**GitHub repository**](https://github.com/lrdcxdes/danbooru). Feel free to submit pull requests with improvements or fixes.
+Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on the **[GitHub repository](https://github.com/lrdcxdes/danbooru)**. Feel free to submit pull requests with improvements or fixes.
 
 ## License
-This project is licensed under the MIT License. See the [**LICENSE**](https://github.com/lrdcxdes/aiodanbooru/blob/main/LICENSE) file for more information.
+This project is licensed under the MIT License. See the **[LICENSE](https://github.com/lrdcxdes/aiodanbooru/blob/main/LICENSE)** file for more information.
