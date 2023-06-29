@@ -1,5 +1,5 @@
 import pytest
-from aiodanbooru.api import DanbooruAPI
+from aiodanbooru import DanbooruAPI, DanbooruPost
 
 
 @pytest.mark.asyncio
@@ -39,6 +39,14 @@ async def test_get_media():
         media_data = await post.get_media(use_large=False)
         assert isinstance(media_data, bytes)
         assert len(media_data) > 0
+
+
+@pytest.mark.asyncio
+async def test_get_random_post():
+    api = DanbooruAPI(base_url="https://danbooru.donmai.us")
+    random_post = await api.get_random_post()
+    assert random_post is not None
+    assert isinstance(random_post, DanbooruPost)
 
 
 # Running the tests

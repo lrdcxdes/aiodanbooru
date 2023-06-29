@@ -32,3 +32,10 @@ class DanbooruAPI:
             response = await self._get(session, endpoint, params)
             posts = [DanbooruPost(**post) for post in response]
             return posts
+
+    async def get_random_post(self) -> DanbooruPost:
+        async with aiohttp.ClientSession() as session:
+            endpoint = "/posts/random.json"
+            response = await self._get(session, endpoint)
+            post = DanbooruPost(**response)
+            return post

@@ -1,7 +1,7 @@
 # Danbooru
 
-[![PyPI](https://img.shields.io/pypi/v/danbooru.svg)](https://pypi.org/project/aiodanbooru/)
-[![License](https://img.shields.io/pypi/l/danbooru.svg)](https://github.com/lrdcxdes/aiodanbooru/blob/main/LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/aiodanbooru.svg)](https://pypi.org/project/aiodanbooru/)
+[![License](https://img.shields.io/pypi/l/aiodanbooru.svg)](https://https://github.com/lrdcxdes/aiodanbooru/blob/main/LICENSE)
 
 Danbooru is a Python library that provides an easy-to-use interface for interacting with the Danbooru API. It allows you to search for posts, retrieve post details, and download media files from the Danbooru image board.
 
