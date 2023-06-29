@@ -25,10 +25,16 @@ class DanbooruAPI:
             response.raise_for_status()
             return await response.json()
 
-    async def get_posts(self, tags: List[str], limit: int = 100) -> List[DanbooruPost]:
+    async def get_posts(
+        self, tags: List[str] = None, limit: int = None
+    ) -> List[DanbooruPost]:
         async with aiohttp.ClientSession() as session:
             endpoint = "/posts.json"
-            params = {"tags": " ".join(tags), "limit": str(limit)}
+            params = {}
+            if tags:
+                params["tags"] = " ".join(tags)
+            if limit:
+                params["limit"] = str(limit)
             response = await self._get(session, endpoint, params)
             posts = [DanbooruPost(**post) for post in response]
             return posts
