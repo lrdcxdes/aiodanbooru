@@ -2,12 +2,12 @@
 Danbooru Library
 =============
 
-.. image:: https://img.shields.io/pypi/v/danbooru.svg
-        :target: https://pypi.org/project/danbooru/
+.. image:: https://img.shields.io/pypi/v/aiodanbooru.svg
+        :target: https://pypi.org/project/aiodanbooru/
         :alt: PyPI Version
 
-.. image:: https://img.shields.io/pypi/pyversions/danbooru.svg
-        :target: https://pypi.org/project/danbooru/
+.. image:: https://img.shields.io/pypi/pyversions/aiodanbooru.svg
+        :target: https://pypi.org/project/aiodanbooru/
         :alt: Python Versions
 
 Overview
@@ -31,32 +31,33 @@ You can install Danbooru using pip:
 
 ::
 
-    $ pip install danbooru
+    $ pip install aiodanbooru
 
 Usage
 =====
 
 Here's a simple example that demonstrates how to use Danbooru:
 
-```python
-from danbooru import DanbooruAPI
+::
 
-api = DanbooruAPI(base_url="https://danbooru.donmai.us")
-posts = await api.get_posts(tags=["cat_girl", "solo"], limit=10)
+    from danbooru import DanbooruAPI
 
-if posts:
-    post = posts[0]
-    media_data = await post.get_media()
-    with open(post.filename, "wb") as file:
-        file.write(media_data)
-    print("Media saved!")
-```
+    api = DanbooruAPI(base_url="https://danbooru.donmai.us")
+    posts = await api.get_posts(tags=["cat_girl", "solo"], limit=10)
 
-For more details and advanced usage examples, please refer to the `documentation <https://danbooru.readthedocs.io/en/latest/>`_.
+    if posts:
+        post = posts[0]
+        media_data = await post.get_media()
+        with open(post.filename, "wb") as file:
+            file.write(media_data)
+        print("Media saved!")
+
+
+For more details and advanced usage examples, please refer to the `documentation <https://aiodanbooru.readthedocs.io/en/latest/>`_.
 
 Contributing
 ============
-Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on the `GitHub repository <
+Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on the `GitHub repository <https://github.com/lrdcxdes/aiodanbooru>`_.
 
 
 License
