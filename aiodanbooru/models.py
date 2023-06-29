@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 import aiohttp
 from pydantic import BaseModel, Field, HttpUrl, validator
@@ -65,7 +65,7 @@ class DanbooruPost(BaseModel):
                 return await response.read()
 
     @property
-    def tags(self) -> list[str]:
+    def tags(self) -> List[str]:
         return self.tag_string.split()
 
     @property
