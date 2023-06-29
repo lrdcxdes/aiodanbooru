@@ -25,6 +25,7 @@ setup(
     python_requires=">=3.7",
     project_urls={
         "Source": "https://github.com/lrdcxdes/aiodanbooru",
+        "Bug Reports": "https://github.com/lrdcxdes/aiodanbooru/issues",
     },
     long_description=open("README.md").read(),
 )
