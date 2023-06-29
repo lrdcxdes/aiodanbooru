@@ -1,5 +1,5 @@
 import pytest
-from aiodanbooru import DanbooruAPI, DanbooruPost
+from aiodanbooru.api import DanbooruAPI, DanbooruPost
 
 
 @pytest.mark.asyncio
