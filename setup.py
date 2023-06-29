@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="aiodanbooru",
-    version="1.0.3",
+    version="1.0.4",
     description="A Python library for interacting with the Danbooru API",
     author="lrdcxdes",
     author_email="lordgrief176@email.com",

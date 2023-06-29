@@ -1,3 +1,4 @@
+import asyncio
 from typing import Optional
 
 import aiohttp
@@ -63,6 +64,10 @@ class DanbooruPost(BaseModel):
             async with session.get(url) as response:
                 response.raise_for_status()
                 return await response.read()
+
+    @property
+    def tags(self) -> list[str]:
+        return self.tag_string.split()
 
     @property
     def link(self):
