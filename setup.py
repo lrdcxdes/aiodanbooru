@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="aiodanbooru",
-    version="1.0.0",
+    version="1.0.1",
     description="A Python library for interacting with the Danbooru API",
     author="lrdcxdes",
     author_email="lordgrief176@email.com",
@@ -28,4 +28,5 @@ setup(
         "Bug Reports": "https://github.com/lrdcxdes/aiodanbooru/issues",
     },
     long_description=open("LONG.rst").read(),
+    license="MIT",
 )
