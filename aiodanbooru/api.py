@@ -31,9 +31,9 @@ class DanbooruAPI:
         async with aiohttp.ClientSession() as session:
             endpoint = "/posts.json"
             params = {}
-            if tags:
+            if tags is not None:
                 params["tags"] = " ".join(tags)
-            if limit:
+            if limit is not None:
                 params["limit"] = str(limit)
             response = await self._get(session, endpoint, params)
             posts = [DanbooruPost(**post) for post in response]
