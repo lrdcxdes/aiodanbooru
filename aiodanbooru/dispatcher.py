@@ -5,6 +5,8 @@ from aiodanbooru.api import DanbooruPost, DanbooruAPI
 from aiodanbooru.base.filters import Filter
 from aiodanbooru.base.handler import Handler
 
+import logging
+
 
 class Dispatcher:
     def __init__(self):
@@ -16,7 +18,11 @@ class Dispatcher:
     async def watch_posts(self):
         while True:
             await asyncio.sleep(0.02)
-            post: DanbooruPost = (await self.api.get_posts(limit=1))[0]
+            try:
+                post: DanbooruPost = (await self.api.get_posts(limit=1))[0]
+            except Exception as e:
+                logging.error(e)
+                continue
             post_id = post.id
             if self.__last_post_id is None:
                 self.__last_post_id = post_id
