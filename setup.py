@@ -9,7 +9,7 @@ setup(
     packages=find_packages(exclude=["tests"]),
     install_requires=[
         "aiohttp",
-        "pydantic",
+        "pydantic<2.0.0",
     ],
     classifiers=[
         "Development Status :: 5 - Production/Stable",

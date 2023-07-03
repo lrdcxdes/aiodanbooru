@@ -49,6 +49,16 @@ async def test_get_random_post():
     assert isinstance(random_post, DanbooruPost)
 
 
+@pytest.mark.asyncio
+async def test_dispatcher():
+    api = DanbooruAPI()
+
+    post: DanbooruPost = (await api.get_posts(limit=1))[0]
+    post_id = post.id
+
+    assert post_id is not None
+
+
 # Running the tests
 if __name__ == "__main__":
     pytest.main(["-v"])
