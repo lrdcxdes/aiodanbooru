@@ -1,4 +1,3 @@
-import asyncio
 from typing import List
 
 import aiohttp
@@ -37,14 +36,12 @@ class DanbooruAPI:
             if limit is not None:
                 params["limit"] = str(limit)
             response = await self._get(session, endpoint, params)
-            posts = [
-                DanbooruPost(**post, loop=asyncio.get_event_loop()) for post in response
-            ]
+            posts = [DanbooruPost(**post) for post in response]
             return posts
 
     async def get_random_post(self) -> DanbooruPost:
         async with aiohttp.ClientSession() as session:
             endpoint = "/posts/random.json"
             response = await self._get(session, endpoint)
-            post = DanbooruPost(**response, loop=asyncio.get_event_loop())
+            post = DanbooruPost(**response)
             return post
