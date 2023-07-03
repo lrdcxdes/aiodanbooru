@@ -2,8 +2,8 @@ import asyncio
 from typing import List, Union
 
 from aiodanbooru.api import DanbooruPost, DanbooruAPI
-from aiodanbooru.dispatcher.filters import Filter
-from aiodanbooru.dispatcher.handler import Handler
+from aiodanbooru.base.filters import Filter
+from aiodanbooru.base.handler import Handler
 
 
 class Dispatcher:
@@ -51,7 +51,7 @@ class Dispatcher:
 
 
 if __name__ == "__main__":
-    from aiodanbooru.dispatcher import filters
+    from aiodanbooru.base import filters
 
     dispatcher = Dispatcher()
 

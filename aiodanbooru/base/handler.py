@@ -1,7 +1,7 @@
 import asyncio
 from typing import Callable, Union, List
 
-from aiodanbooru.dispatcher.filters import Filter
+from aiodanbooru.base.filters import Filter
 from aiodanbooru.models import DanbooruPost
 
 
