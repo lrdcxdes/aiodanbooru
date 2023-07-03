@@ -1,7 +1,8 @@
 from typing import Optional, List
 
 import aiohttp
-from pydantic import BaseModel, Field, HttpUrl, validator
+from pydantic import BaseModel, Field, validator
+from pydantic.networks import HttpUrl
 
 
 class DanbooruPost(BaseModel):
@@ -16,7 +17,7 @@ class DanbooruPost(BaseModel):
     tag_string_meta: str
     rating: Optional[str]
     parent_id: Optional[int]
-    source: Optional[HttpUrl]
+    source: Optional[str]
     md5: Optional[str] = Field(None, description="MD5 hash of the media file")
     file_url: Optional[HttpUrl] = Field(None, description="URL of the media file")
     large_file_url: Optional[HttpUrl] = Field(
@@ -92,6 +93,8 @@ class DanbooruPost(BaseModel):
         async with aiohttp.ClientSession() as session:
             if self.source.startswith("https://i.pximg.net"):
                 url = self.source.replace("i.pximg.net", "i.pixiv.cat")
+            elif self.source.startswith("file://"):
+                return b""
             else:
                 url = self.source
             async with session.get(url) as response:
