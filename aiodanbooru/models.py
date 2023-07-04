@@ -63,12 +63,12 @@ class DanbooruPost(BaseModel):
             return self.large_file_url.split("/")[-1].split(".")[-1]
         elif self.file_url:
             return self.file_url.split("/")[-1].split(".")[-1]
-        elif self.source:
-            return (
-                self.source.split("/")[-1].split(".")[-1]
-                if "." in self.source
-                else self.file_ext
-            )
+        # elif self.source:
+        #     return (
+        #         self.source.split("/")[-1].split(".")[-1]
+        #         if "." in self.source
+        #         else self.file_ext
+        #     )
         else:
             return self.file_ext
 
