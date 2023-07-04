@@ -60,13 +60,17 @@ class DanbooruPost(BaseModel):
     @property
     def extension(self) -> Optional[str]:
         if self.large_file_url:
-            return self.large_file_url.split(".")[-1]
+            return self.large_file_url.split("/")[-1].split(".")[-1]
         elif self.file_url:
-            return self.file_url.split(".")[-1]
+            return self.file_url.split("/")[-1].split(".")[-1]
         elif self.source:
-            return self.source.split(".")[-1] if "." in self.source else self.file_ext
+            return (
+                self.source.split("/")[-1].split(".")[-1]
+                if "." in self.source
+                else self.file_ext
+            )
         else:
-            return None
+            return self.file_ext
 
     async def get_media(self, use_large: bool = True) -> bytes:
         if not self.file_url and not self.large_file_url and self.source:
