@@ -45,14 +45,28 @@ class DanbooruPost(BaseModel):
 
     @validator("source")
     def validate_source(cls, source):
-        if source is not None and len(source) < 1:
+        if (
+            source is not None
+            and len(source) < 1
+            and not cls.file_url
+            and not cls.large_file_url
+        ):
             raise ValueError("Source must have at least 1 character")
         return source
 
     class Config:
         extra = "allow"
 
-    extension: Optional[str] = Field(None, alias="file_ext")
+    @property
+    def extension(self) -> Optional[str]:
+        if self.large_file_url:
+            return self.large_file_url.split(".")[-1]
+        elif self.file_url:
+            return self.file_url.split(".")[-1]
+        elif self.source:
+            return self.source.split(".")[-1] if "." in self.source else self.file_ext
+        else:
+            return None
 
     async def get_media(self, use_large: bool = True) -> bytes:
         if not self.file_url and not self.large_file_url and self.source:
@@ -83,7 +97,13 @@ class DanbooruPost(BaseModel):
         return self.extension in ["webm", "mp4"]
 
     def is_image(self) -> bool:
-        return self.extension in ["jpg", "jpeg", "png", "gif"]
+        return self.extension in ["jpg", "jpeg", "png", "webp"]
+
+    def is_animation(self) -> bool:
+        return self.extension in ["gif", "gifv"]
+
+    def is_zip(self) -> bool:
+        return self.extension in ["zip"]
 
     @property
     def filename(self):
