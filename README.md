@@ -25,7 +25,7 @@ Here's a simple example that demonstrates how to use the Danbooru library:
 
 ```python
 from aiodanbooru.api import DanbooruAPI
-
+import aiodanbooru
 
 async def main():
     api = DanbooruAPI(base_url="https://danbooru.donmai.us")
@@ -38,12 +38,7 @@ async def main():
             file.write(media_data)
         print("Media file saved!")
 
-
-if __name__ == "__main__":
-    import asyncio
-
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+aiodanbooru.run(main)
 ```
 
 For more details and advanced usage examples, please refer to the **[documentation](https://aiodanbooru.readthedocs.io/en/latest/)**.
